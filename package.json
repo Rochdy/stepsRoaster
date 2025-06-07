@@ -1,0 +1,31 @@
+{
+  "name": "roast-my-steps",
+  "version": "1.0.0",
+  "description": "A serverless app that roasts laziness based on your step count",
+  "main": "handler.js",
+  "scripts": {
+    "test:invoke": "serverless invoke local -f rateHandler",
+    "test:offline": "serverless offline",
+    "deploy": "serverless deploy"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1450.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "googleapis": "^100.0.0"
+  },
+  "devDependencies": {
+    "serverless": "^3.30.0",
+    "serverless-offline": "^12.0.0"
+  },
+  "keywords": [
+    "serverless",
+    "aws",
+    "lambda",
+    "google-fit",
+    "bedrock",
+    "sns"
+  ],
+  "author": "Mohammed Roshdy",
+  "license": "MIT"
+}

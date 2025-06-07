@@ -1,0 +1,35 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: mohammedroshdy
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: roastMySteps
+
+plugins:
+  - serverless-offline
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - bedrock:InvokeModel
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - sns:Publish
+      Resource: "*"
+  environment:
+    SNS_TOPIC_ARN: ${env:SNS_TOPIC_ARN}
+    GOOGLE_CLIENT_ID: ${env:GOOGLE_CLIENT_ID}
+    GOOGLE_CLIENT_SECRET: ${env:GOOGLE_CLIENT_SECRET}
+    GOOGLE_ACCESS_TOKEN: ${env:GOOGLE_ACCESS_TOKEN}
+    GOOGLE_REFRESH_TOKEN: ${env:GOOGLE_REFRESH_TOKEN}
+
+functions:
+  rateHandler:
+    handler: handler.run
+    events:
+      - schedule: rate(1 day)
