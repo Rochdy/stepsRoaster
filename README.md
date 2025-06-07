@@ -23,3 +23,5 @@ GOOGLE_REFRESH_TOKEN=user_refresh_token
 GOOGLE_ACCESS_TOKEN=user_access_token
 SNS_TOPIC_ARN=your_sns_topic_arn
 ```
+
+2. Install Packages & run `npm run test:invoke` to get results locally
